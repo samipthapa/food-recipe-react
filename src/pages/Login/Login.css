@@ -1,0 +1,101 @@
+#greeting-login {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 45px;
+    color: black;
+    margin: 0px;
+}
+
+#welcome-login {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #121212;
+    margin: 0px 0px 40px 0px;
+}
+
+.container-login {
+    width: 24%;
+    margin: auto;
+    color: white;
+    padding: 68px 0px;
+    background-color: white;
+}
+
+#forget-password {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FF9C00;
+}
+
+.form-login {
+    border: 1.5px solid #D9D9D9;
+    border-radius: 10px;
+    height: 35px;
+    width: 315px;
+    padding: 5px 10px;
+    margin: 0px;
+}
+
+.label-login {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #121212;
+    margin: 0px;
+}
+
+#signin-text {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+    color: #D9D9D9; 
+    margin: 20px 5px;
+}
+
+.horizontal-line {
+    border-top: 1px solid #D9D9D9;
+    width: 80px;
+}
+
+.logo-container {
+    width: 44px;
+    height: 44px;
+    box-shadow: 0px 0px 5px 3px rgba(105, 105, 105, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#noaccount-login {
+    color: #000000;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+}
+
+#signup-login {
+    color: #FF9C00;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    margin-left: 5px;
+}

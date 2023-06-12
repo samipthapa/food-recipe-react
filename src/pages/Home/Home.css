@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.greeting {
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+}
+
+.subheading {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    color: #A9A9A9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+}
+
+#search-recipe {
+    border-radius: 10px;
+    border: 1.3px solid #D9D9D9;
+    height: 30px;
+    width: 255px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.container-home {
+    width: 24%;
+    margin: auto;
+    color: white;
+    padding: 68px 0px;
+    background-color: white;
+}
