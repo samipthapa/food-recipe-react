@@ -10,27 +10,27 @@ import { TokenContext } from "../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const { token, updateToken } = useContext(TokenContext);
+    const { data, setData } = useContext(TokenContext);
 
     const navigate = useNavigate();
 
     const handleLogin = (provider) => {
         signInWithPopup(auth, provider)
             .then(data => {
-                updateToken(data._tokenResponse.idToken);
+                console.log(data.user.displayName);
+                // updateData(data._tokenResponse.idToken, data.user.displayName);
+                setData({ token: data._tokenResponse.idToken, name: data.user.displayName });
             })
             .catch(error => {
                 console.log(error);
             })
     }
 
-    console.log(token);
-
     useEffect(() => {
-        if (token) {
+        if (data.token) {
             navigate('/home');
         }
-    }, [token]);
+    }, [data]);
 
     return (
         <div className="container-login">

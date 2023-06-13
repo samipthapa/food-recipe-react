@@ -12,7 +12,7 @@ const Home = () => {
     const [search, setSearch] = useState('');
     const navigate = useNavigate();
 
-    const { token, updateToken } = useContext(TokenContext);
+    const { data, setData } = useContext(TokenContext);
 
     useEffect(() => {
         onSearch();
@@ -34,7 +34,7 @@ const Home = () => {
         <div className="container-home">
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <div>
-                    <h2 className="greeting">Hello Jega</h2>
+                    <h2 className="greeting">Hello {data.name.split(" ")[0]}</h2>
                     <p className="subheading">What are you cooking today?</p>
                 </div>
                 <img src={profile} alt="profile" className="profile" />
@@ -65,8 +65,8 @@ const Home = () => {
             <div
                 style={{ cursor: 'pointer' }}
                 onClick={() => {
-                    updateToken("");
                     navigate('/');
+                    setData({ token: "", name: "" });
                 }}>
                 <Button text="Logout" />
             </div>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import chef from "../../assets/chef.png";
 import ButtonComponent from "../../components/Button/ButtonComponent";
 import background from "../../assets/background.png";
@@ -7,16 +7,14 @@ import { TokenContext } from "../../context/TokenContext";
 import { Link, useNavigate } from "react-router-dom";
 
 const Splash = () => {
-    const { token, updateToken } = useContext(TokenContext);
+    const { data, setData } = useContext(TokenContext);
     const navigate = useNavigate();
 
-    const handleNavigation = () => {
-        if (token) {
-            navigate("/home");
-        } else {
-            navigate("/login");
+    useEffect(() => {
+        if (data.token) {
+            navigate('/home');
         }
-    }
+    }, [data.token]);
 
     return (
         <div className="container" style={{ backgroundImage: `url(${background})` }}>
@@ -25,12 +23,9 @@ const Splash = () => {
             <h1 id="get-cooking">Get<br />Cooking</h1>
             <p id="tasty-recipe">Simple way to find Tasty Recipe</p>
 
-            <div
-                style={{ cursor: 'pointer' }}
-                onClick={handleNavigation}
-            >
+            <Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                 <ButtonComponent text="Start Cooking" />
-            </div>
+            </Link>
 
         </div>
     )
