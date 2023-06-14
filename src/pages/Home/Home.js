@@ -1,11 +1,15 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, Suspense } from "react";
 import profile from "../../assets/profile.png";
 import "./Home.css";
-import axios from "axios";
-import Recipe from "../../components/Recipe/Recipe";
+import api from "../../utils/api";
 import Button from "../../components/Button/ButtonComponent";
+import Recipe from "../../components/Recipe/Recipe";
 import { TokenContext } from "../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
+import { ErrorBoundary } from "react-error-boundary";
+import fallbackRender from "../../components/ErrorBoundary/ErrorBoundary";
+
+// const Button = React.lazy(() => import("../../components/Button/ButtonComponent"));
 
 const Home = () => {
     const [recipes, setRecipes] = useState([]);
@@ -21,7 +25,7 @@ const Home = () => {
     const onSearch = (e) => {
         if (e) e.preventDefault();
 
-        axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s=' + search)
+        api.get('https://www.themealdb.com/api/json/v1/1/search.php?s=' + search)
             .then(response => {
                 setRecipes(response.data.meals);
             })
@@ -68,7 +72,14 @@ const Home = () => {
                     navigate('/');
                     setData({ token: "", name: "" });
                 }}>
-                <Button text="Logout" />
+                <ErrorBoundary
+                    FallbackComponent={fallbackRender}
+                    onReset={() => { }}
+                >
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Button text="Logout" />
+                    </Suspense>
+                </ErrorBoundary>
             </div>
         </div >
     )

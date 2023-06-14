@@ -18,7 +18,6 @@ const Login = () => {
         signInWithPopup(auth, provider)
             .then(data => {
                 console.log(data.user.displayName);
-                // updateData(data._tokenResponse.idToken, data.user.displayName);
                 setData({ token: data._tokenResponse.idToken, name: data.user.displayName });
             })
             .catch(error => {

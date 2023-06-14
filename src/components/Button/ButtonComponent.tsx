@@ -1,9 +1,13 @@
 import React from "react";
 import "./ButtonComponent.css";
 
-const Button = ({ text }) => {
+type Props = {
+    text: string;
+}
+
+const Button = ({ text }: Props) => {
     return (
-        <div class="button">
+        <div className="button">
             <p id="button-text">{text}</p>
         </div>
     )

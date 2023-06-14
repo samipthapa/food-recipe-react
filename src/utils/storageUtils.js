@@ -9,7 +9,7 @@ const setLocalStorage = (key, value) => {
 const getLocalStorage = (key) => {
     try {
         const item = localStorage.getItem(key);
-        return item ? JSON.parse(item) : null;
+        return item ? JSON.parse(item) : "";
     } catch (error) {
         console.log('Error getting localStorage item:', error);
         return null;

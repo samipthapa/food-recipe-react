@@ -1,33 +1,33 @@
 import React, { useState, createContext } from "react";
 import { useEffect } from "react";
-import { setLocalStorage, getLocalStorage } from "../utils/storageUtils";
+// import { setLocalStorage, getLocalStorage } from "../utils/storageUtils";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export const TokenContext = createContext();
 
 export function TokenProvider({ children }) {
-    const user = getLocalStorage("user");
+    const [value, setLocalStorage] = useLocalStorage("user", {
+        token: "",
+        name: ""
+    });
 
-    const [data, setData] = useState(() => {
-        return {
-            token: user ? user.token : "",
-            name: user ? user.name : ""
-        }
+    // const user = getLocalStorage("user");
+
+    const [data, setData] = useState({
+        token: value.token,
+        name: value.name
     });
 
     useEffect(() => {
-        setLocalStorage("user", {
+        // setLocalStorage("user", {
+        //     token: data.token,
+        //     name: data.name
+        // });
+        setLocalStorage({
             token: data.token,
             name: data.name
-        });
+        })
     }, [data]);
-
-    // const updateData = (newToken, name) => {
-    //     setData(prev => ({
-    //         ...prev,
-    //         token: newToken,
-    //         name: name
-    //     }))
-    // };
 
     return (
         <TokenContext.Provider value={{ data, setData }}>
