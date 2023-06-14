@@ -1,10 +1,5 @@
 import { useState } from 'react';
 
-// type Props = {
-//     key: string;
-//     initialValue: any;
-// };
-
 const useLocalStorage = (key, initialValue) => {
 
     const [value, setValue] = useState(() => {
@@ -42,7 +37,7 @@ const useLocalStorage = (key, initialValue) => {
         }
     };
 
-    return [value, setValue, setLocalStorageValue, removeLocalStorage, clearLocalStorage];
+    return [value, setLocalStorageValue, removeLocalStorage, clearLocalStorage];
 }
 
 export default useLocalStorage;

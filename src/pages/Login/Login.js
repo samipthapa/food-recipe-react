@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Login.css";
+import style from "./Login.module.css";
 import GoogleLogo from "../../assets/google.png";
 import FacebookLogo from "../../assets/facebook.png";
 import ButtonComponent from "../../components/Button/ButtonComponent";
@@ -8,6 +8,7 @@ import { auth, googleProvider, facebookProvider } from "../../firebaseConfig";
 import { signInWithPopup } from "firebase/auth";
 import { TokenContext } from "../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
+import "../../style.css";
 
 const Login = () => {
     const { data, setData } = useContext(TokenContext);
@@ -32,48 +33,48 @@ const Login = () => {
     }, [data]);
 
     return (
-        <div className="container-login">
-            <h1 id="greeting-login">Hello,</h1>
-            <h2 id="welcome-login">Welcome Back!</h2>
+        <div className="container">
+            <h1 id={style["greeting-login"]}>Hello,</h1>
+            <h2 id={style["welcome-login"]}>Welcome Back!</h2>
 
             <form>
                 <label for="email">
-                    <p className="label-login">Email</p>
+                    <p className={style.labelLogin}>Email</p>
                 </label><br />
-                <input type="text" id="email" placeholder="Enter Email" className="form-login" />
+                <input type="text" placeholder="Enter Email" className={style.formLogin} />
 
                 <label for="password">
-                    <p className="label-login">Password</p>
+                    <p className={style.labelLogin}>Password</p>
                 </label><br />
-                <input type="password" id="password" placeholder="Enter Password" className="form-login" />
+                <input type="password" placeholder="Enter Password" className={style.formLogin} />
             </form>
 
-            <p id="forget-password">Forgot Password?</p>
+            <p id={style["forget-password"]}>Forgot Password?</p>
 
             <Link to="/home" style={{ color: 'inherit', textDecoration: 'inherit' }}>
                 <ButtonComponent text="Sign In" />
             </Link>
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
-                <hr className="horizontal-line" />
+                <hr className={style.horizontalLine} />
                 <p id="signin-text">Or Sign in With</p>
-                <hr className="horizontal-line" />
+                <hr className={style.horizontalLine} />
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-                <div className="logo-container" onClick={() => handleLogin(googleProvider)}>
-                    <img src={GoogleLogo} className="img-logo" />
+                <div className={style.logoContainer} onClick={() => handleLogin(googleProvider)}>
+                    <img src={GoogleLogo} />
                 </div>
-                <div className="logo-container" onClick={() => handleLogin(facebookProvider)}>
-                    <img src={FacebookLogo} className="img-logo" />
+                <div className={style.logoContainer} onClick={() => handleLogin(facebookProvider)}>
+                    <img src={FacebookLogo} />
                 </div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-                <p id="noaccount-login">
+                <p id={style["noaccount-login"]}>
                     Don't have an account?
                 </p>
-                <p id="signup-login">
+                <p id={style["signup-login"]}>
                     Sign Up
                 </p>
             </div>

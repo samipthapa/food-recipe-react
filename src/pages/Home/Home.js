@@ -8,6 +8,7 @@ import { TokenContext } from "../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import fallbackRender from "../../components/ErrorBoundary/ErrorBoundary";
+import "../../style.css";
 
 // const Button = React.lazy(() => import("../../components/Button/ButtonComponent"));
 
@@ -22,6 +23,12 @@ const Home = () => {
         onSearch();
     }, []);
 
+    useEffect(() => {
+        if (!data.token) {
+            navigate('/');
+        }
+    }, [data]);
+
     const onSearch = (e) => {
         if (e) e.preventDefault();
 
@@ -35,7 +42,7 @@ const Home = () => {
     }
 
     return (
-        <div className="container-home">
+        <div className="container">
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <div>
                     <h2 className="greeting">Hello {data.name.split(" ")[0]}</h2>
