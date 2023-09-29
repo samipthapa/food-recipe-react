@@ -1,12 +1,12 @@
 import React from "react";
 import "./Recipe.css";
 
-type Props = {
+interface Props {
     name: string;
     image: string;
 }
 
-const Recipe = ({ name, image }: Props) => {
+const Recipe: React.FC<Props> = ({ name, image }) => {
     return (
         <div id="card">
             <img

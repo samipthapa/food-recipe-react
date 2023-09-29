@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+message Recipe {
+    string idMeal = 1;
+    string strMeal = 2;
+    string strMealThumb = 3;
+}
+
+service RecipeService {
+    rpc GetRecipe(GetRecipeRequest) returns (RecipeResponse);
+    rpc SearchRecipes(SearchRecipesRequest) returns (SearchRecipesResponse);
+}
+
+message GetRecipeRequest {
+    string strMeal = 1;
+}
+
+message RecipeResponse {
+    Recipe recipe = 1;
+}
+
+message SearchRecipesRequest {
+    string strMeal = 1;
+}
+
+message SearchRecipesResponse {
+    repeated Recipe recipes = 1;
+}
+
+
